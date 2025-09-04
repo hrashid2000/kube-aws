@@ -31,6 +31,15 @@ jobs:
       - name: Zip Terraform Files + Plan
         run: zip -r terraform-build.zip . tfplan
 
+      - name: Terraform Plan (Targeted Resource)
+        run: terraform plan -target=aws_s3_bucket.example
+
+      - name: Terraform Apply (Targeted Resource)
+        run: terraform apply -auto-approve -target=aws_s3_bucket.example
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
       - name: Upload to S3
         if: always()
         run: aws s3 cp terraform-build.zip s3://hamzazipfilebucket/terraform-build.zip
