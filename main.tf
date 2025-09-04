@@ -144,6 +144,7 @@ resource "aws_route_table_association" "private" {
 
 resource "aws_s3_bucket" "example" {
   bucket = "hamzazipfilebucket"
+  force_destroy = true 
   lifecycle {
     prevent_destroy = false
     ignore_changes  = [acl, tags]
