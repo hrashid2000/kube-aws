@@ -58,6 +58,12 @@ jobs:
       AWS_REGION: us-east-1
 
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        
       - name: Download from S3
         run: aws s3 cp s3://hamzazipfilebucket/terraform-build.zip terraform-build.zip
         env:
