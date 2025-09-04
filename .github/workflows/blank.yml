@@ -27,7 +27,7 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan
-
+        
       - name: Zip Terraform Files + Plan
         run: zip -r terraform-build.zip . tfplan
 
