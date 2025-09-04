@@ -147,6 +147,6 @@ resource "aws_s3_bucket" "example" {
   force_destroy = true 
   lifecycle {
     prevent_destroy = false
-    ignore_changes  = [acl, tags]
+    ignore_changes  = [tags]
   }
 }
