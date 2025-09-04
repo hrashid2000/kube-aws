@@ -85,7 +85,7 @@ jobs:
           AWS_REGION: us-east-1
 
       - name: Unzip
-        run: unzip terraform-build.zip -d . -y
+        run: unzip -o terraform-build.zip -d .
 
       - name: Terraform Init
         run: terraform init
