@@ -3,6 +3,5 @@ terraform {
     bucket = "hamzaterraformbackend"
     key = "terraform/state/terraform.tfstate"
     region = "us-east-1"
-    profile = "hamza"
   }
 }
